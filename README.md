@@ -57,6 +57,57 @@ Um dos pontos altos deste projeto foi o aprendizado prático de como formular pr
 
 * **Resultado da IA:** Retornou um JSON estruturado perfeitamente, com critérios de aceitação em Gherkin ultra-específicos e uma lista de sub-tarefas pronta para o time técnico iniciar o desenvolvimento imediatamente no Jira, reduzindo o tempo de planejamento do time em 70%.
 
+Este código JSON está perfeitamente formatado.
+{
+  "user_story": {
+    "title": "Atendimento Automatizado e Inteligente via WhatsApp (n8n + IA)",
+    "as_a": "Cliente com dúvidas sobre os produtos ou serviços da empresa",
+    "i_want_to": "ser atendido de forma rápida por um assistente inteligente de IA integrado ao WhatsApp que consulte a base de conhecimento interna e realize o transbordo para um humano quando necessário",
+    "so_that": "eu consiga resolver minhas dúvidas instantaneamente, sem filas, mas ainda tenha suporte humano para questões complexas."
+  },
+  "acceptance_criteria": [
+    {
+      "scenario": "Cenário 1: Resolução de dúvida comum via IA",
+      "given": "que o cliente inicia uma conversa com o bot de suporte no WhatsApp",
+      "when": "ele envia uma dúvida cuja resposta está presente na base de conhecimento interna",
+      "then": "o agente de IA processa a pergunta no n8n e responde imediatamente de forma precisa, mantendo o atendimento no fluxo automático."
+    },
+    {
+      "scenario": "Cenário 2: Transbordo por falta de resposta na base de conhecimento",
+      "given": "que o cliente envia uma dúvida técnica ou complexa",
+      "when": "o agente de IA consulta a base de conhecimento no n8n e não localiza a informação necessária para responder",
+      "then": "o sistema deve notificar o cliente amigavelmente e transferir a conversa para a fila de atendimento humano, enviando o histórico do chat para o atendente."
+    },
+    {
+      "scenario": "Cenário 3: Cliente solicita falar com humano diretamente",
+      "given": "que o cliente está no meio de uma interação com o agente de IA",
+      "when": "ele digita comandos como 'falar com atendente', 'humano' ou seleciona essa opção",
+      "then": "o fluxo do n8n interrompe a automação da IA imediatamente e direciona o chat para a fila de transbordo humano."
+    }
+  ],
+  "sub_tasks": {
+    "design_ui_ux": [
+      "Desenhar o fluxo de conversação (árvore de decisão) e tom de voz amigável da IA",
+      "Criar os templates de mensagens de boas-vindas, falha técnica e transferência para o operador humano"
+    ],
+    "engineering": [
+      "Configurar o nó de Trigger (gatilho) do WhatsApp Webhook no n8n",
+      "Integrar o nó de IA Agent com o modelo de LLM e o nó de Vector Store (Base de Conhecimento RAG) no n8n",
+      "Implementar lógica dinâmica (nós Switch/Router) para direcionar o chat ao suporte humano em caso de falha ou requisição"
+    ],
+    "quality_assurance": [
+      "Criar conjunto de perguntas de teste para homologar a acurácia das respostas da IA contra alucinações",
+      "Validar se o fluxo de transbordo de conversa transfere o histórico completo da sessão para o operador de suporte",
+      "Realizar testes de carga simulando múltiplos usuários enviando mensagens em tempo real no WhatsApp"
+    ],
+    "infrastructure_security": [
+      "Configurar variáveis de ambiente criptografadas e credenciais seguras para chaves de API da OpenAI/Meta no n8n",
+      "Implementar mecanismos de Rate Limiting (limite de requisições) para mitigar abuso de custos com tokens",
+      "Garantir conformidade com a LGPD anonimizando dados sensíveis compartilhados nas conversas com a IA"
+    ]
+  }
+}
+
 ### 🩹 "Cicatrizes" de Desenvolvimento (Troubleshooting)
 
 1. **Problema de Alucinação de JSON no n8n:**
