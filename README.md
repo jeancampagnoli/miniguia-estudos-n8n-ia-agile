@@ -100,7 +100,7 @@ Abaixo estão 3 templates de prompts de alta performance testados e prontos para
 #### 1. Prompt para Geração de Acceptance Criteria (Foco: PO)
 ```text
 Aja como um Product Owner especialista em Scrum.
-Analise a seguinte feature proposta: "[INSERIR TEXTO DA FEATURE]"
+Analise a seguinte feature proposta: "Integração de um agente de IA no chat de suporte do WhatsApp (via n8n) que consulte a nossa base de conhecimento interna para responder dúvidas frequentes dos clientes automaticamente, encaminhando para um atendente humano somente se a IA não souber responder ou se o cliente solicitar."
 Gere 3 critérios de aceitação detalhados usando a linguagem de testes Gherkin (Dado que / Quando / Então).
 A resposta deve ser em Português e focada no valor entregue ao usuário final do produto.
 ```
@@ -108,14 +108,15 @@ A resposta deve ser em Português e focada no valor entregue ao usuário final d
 #### 2. Prompt para Diagnóstico de Gargalos na Sprint (Foco: Scrum Master)
 ```text
 Aja como um Agile Coach experiente. Analise o seguinte resumo de status do time de desenvolvimento na Sprint atual:
-"[INSERIR RESUMO DE STATUS, EXEMPLO: 3 TAREFAS BLOQUEADAS EM QA, SLACK COM CONVERSAS SOBRE DÚVIDAS DE DESIGN]"
+"O nó de integração do WhatsApp no n8n está apresentando erro de autenticação na API de homologação, deixando 3 tarefas travadas na coluna de QA. No canal do Slack, os desenvolvedores estão em um debate infinito sobre usar PostgreSQL ou Pinecone para salvar a memória do Agente de IA. Faltam apenas 3 dias para o fim da Sprint e a meta (Sprint Goal) está em risco."
 Forneça um plano de ação de 3 passos rápidos para o Scrum Master mitigar o risco de não entrega do Sprint Goal, focando em colaboração e remoção de impedimentos.
 ```
 
 #### 3. Prompt para Tradução de Feedback Técnico em Itens de Melhoria de Produto
 ```text
 Aja como um Analista de QA e Engenheiro de Suporte de Nível 3.
-Leia o seguinte e-mail de reclamação técnica de cliente: "[INSERIR EMAIL/RECLAMAÇÃO]"
+Leia o seguinte e-mail de reclamação técnica de cliente: "De: carlos.vendas@empresa.com Assunto: URGENTE: O robô de vendas do WhatsApp quebrou e está enviando código de erro!
+Olá, suporte! Desde as 9h da manhã de hoje, o nosso assistente automático de vendas do WhatsApp parou de funcionar. Quando os clientes mandam mensagem perguntando o preço de um produto, o robô responde com um bloco enorme de código JSON esquisito com uma mensagem de 'Internal Server Error (500)'. Nossos vendedores estão perdendo vendas porque o robô trava a conversa e não repassa para os humanos. Preciso de uma solução agora mesmo, estamos perdendo dinheiro!"
 Traduza essa reclamação em um relatório de bug estruturado para desenvolvedores contendo:
 - Descrição clara do problema técnico suspeito.
 - Passos prováveis para reproduzir.
